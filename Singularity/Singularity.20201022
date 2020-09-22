@@ -1,0 +1,21 @@
+Bootstrap:docker
+From:nvidia/cuda:10.2-cudnn8-runtime-ubuntu18.04
+
+%post
+apt update && apt install -y python3-minimal python3-pip
+python3 -m pip install tensorflow
+python3 -m pip install -U scikit-learn
+python3 -m pip install numpy scipy
+
+%runscript
+echo "Arguments received: $*"
+exec echo "$@"
+
+%labels
+Author Carlos H. Mendoza-Cardenas
+Version 2020-10-22
+Description My first container for machine learning
+
+%help
+A container to run https://github.com/tntrung/msgan on
+Caviness, the HPC cluster at UD.
