@@ -3,10 +3,12 @@ From:nvidia/cuda:10.2-cudnn8-runtime-ubuntu18.04
 
 %post
 apt update && apt install -y python3-minimal python3-pip
-python3 -m pip install tensorflow
-python3 -m pip install -U scikit-learn
-python3 -m pip install scikit-image
-python3 -m pip install numpy scipy
+python3 -m pip install requests==2.24
+python3 -m pip install scipy==1.2.1
+python3 -m pip install numpy==1.19.1
+python3 -m pip install tensorflow==1.14
+python3 -m pip install -U scikit-learn==0.23.2
+python3 -m pip install scikit-image==0.17.2
 
 %runscript
 echo "Arguments received: $*"
